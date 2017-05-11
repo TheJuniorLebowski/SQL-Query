@@ -1,0 +1,9 @@
+
+mysql -uroot -proot # To get the sql in command line
+then click show dabases;  #THis will shows all the databases of the MYSQL.
+
+sudo mysql-workbench    # Open the workbench
+
+
+
+
