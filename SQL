@@ -3,7 +3,7 @@ mysql -uroot -proot # To get the sql in command line
 then click show dabases;  #THis will shows all the databases of the MYSQL.
 
 sudo mysql-workbench    # Open the workbench
+mysqladmin --version #Check the version of MySql
 
-
-
-
+Connect to the MySQL server using the mysql command-line client with the following command:
+mysql -u root -p       #When prompted for password; give root which is the password for mysql. then type "show databases;"
