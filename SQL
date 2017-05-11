@@ -1,9 +1,19 @@
 
-mysql -uroot -proot      #To get the sql in command line.Here "root" 
-then click show dabases;  #THis will shows all the databases of the MYSQL.just after p is the password set for mysql
+
+1)  mysql -uroot -proot      #To get the sql in command line.Here "root". just after p is the password set for mysql
+         #Alternatively below code can be used as well 
+    mysql -u root -p       #When prompted for password; give root which is the password for mysql. 
+    show dabases;  #THis will shows all the databases of the MYSQL.
+
+2)  ps -ef | grep mysqld     #This checks if the server is running. If running output will have "mysqld" listed as well
+3)  cd /usr/bin          #If it's not running, we can run it by running both the line of codes in CLI
+    ./safe_mysqld &
+
+4)  cd /usr/bin       #We can shut down mysql using this two lines of code. It will ask for password of MySql
+./mysqladmin -u root -p shutdown
+
 
 sudo mysql-workbench    # Open the workbench
 mysqladmin --version #Check the version of MySql
 
 Connect to the MySQL server using the mysql command-line client with the following command:
-mysql -u root -p       #When prompted for password; give root which is the password for mysql. then type "show databases;"
