@@ -55,6 +55,15 @@ Connect to the MySQL server using the mysql command-line client with the followi
       A) INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger')
       B) INSERT INTO Persons (P_Id, LastName, FirstName) VALUES (5, 'Tjessem', 'Jakob')
 
+6) UPDATE function.   # It can be used to update/edit an existing row in a table
+      A) UPDATE Persons SET Address='Nissestien 67', City='Sandnes' WHERE LastName='Tjessem' AND FirstName='Jakob'
+       #IT will update Address & City column in Persons table where Lastname is Tjessam and FIrstName is Jakob
+       #If we had not mentioned WHERE arg, it would have updated all the rows in the Address and CIty columns
+
+7)  DELETE function   #Delete rows in a table
+     A) DELETE FROM Persons WHERE LastName='Tjessem' AND FirstName='Jakob'  #It will delete all such conditional rows
+     B) DELETE * FROM table_name    #It is possible to delete all rows in a table without deleting the table itself
+
 
 
 
