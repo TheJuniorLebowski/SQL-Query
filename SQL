@@ -70,8 +70,12 @@ Connect to the MySQL server using the mysql command-line client with the followi
      C) SELECT * FROM Persons WHERE City LIKE '%tav%'  #Same as above, city contains "tav"
      D) SELECT * FROM Persons WHERE City NOT LIKE '%tas%'    #Same as above, city doesnt contain "tas"
      E) SELECT * FROM Persons WHERE City LIKE '[abc]%'   #Same as above, city starts with either a or b or c
-     F) SELECT * FROM Persons WHERE City LIKE '[abc]%'    #Same as above, city doesnt start with either a or b or c
+     F) SELECT * FROM Persons WHERE City LIKE '[^abc]%'    #Same as above, city doesnt start with either a or b or c
 
+9) IN operator      # The IN operator allows you to specify multiple values in a WHERE clause.
+     A) SELECT * FROM Persons WHERE LastName IN ('top','kek') #Select rows which have lasname as top or kek in the table
+
+10) BETWEEN operator    #It selects a range of data between two values. The values can be numbers, text, or dates.
 
 
 
