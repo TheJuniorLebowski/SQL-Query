@@ -35,10 +35,28 @@ Connect to the MySQL server using the mysql command-line client with the followi
 3) AND & OR operators    # The AND operator displays a record if both the first condition and the second condition are true.
                           #The OR operator displays a record if either the first condition or the second condition is true.
 
-   A) SELECT * FROM Persons WHERE FirstName='Tove' AND LastName='Svendson'   #show values where both conditions r true
-   B) SELECT * FROM Persons WHERE FirstName='Tove' OR FirstName='Ola'
-   C) SELECT * FROM Persons WHERE LastName='Svendson' AND (FirstName='Tove' OR FirstName='Ola')
+    A) SELECT * FROM Persons WHERE FirstName='Tove' AND LastName='Svendson'   #show values where both conditions r true
+    B) SELECT * FROM Persons WHERE FirstName='Tove' OR FirstName='Ola'
+    C) SELECT * FROM Persons WHERE LastName='Svendson' AND (FirstName='Tove' OR FirstName='Ola')
       # C will select only the persons with the first name equal to "Tove" AND the last name equal to "Svendson"
+
+4)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
+   SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC   #General syntax
+ 
+    A) SELECT * FROM Persons ORDER BY LastName DESC    #select all the persons from the table above, however, we want to sort
+                                                       # the persons descending (aphbetical letters) by their last name.
+
+5) INSERT INTO    # Used for inserting new records into a table
+   #INSERT INTO statement can be written into two forms. The first form doesn't specify the column names where the data will
+   # be inserted, only their values. The second form specifies both the column names and the values to be inserted.
+      1)  INSERT INTO table_name VALUES (value1, value2, value3,...)
+      2)  INSERT INTO table_name (column1, column2, column3,...) VALUES (value1, value2, value3,...)
+
+      A) INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger')
+      B) INSERT INTO Persons (P_Id, LastName, FirstName) VALUES (5, 'Tjessem', 'Jakob')
+
+
+
 
 
 
