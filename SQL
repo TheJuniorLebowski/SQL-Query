@@ -64,6 +64,16 @@ Connect to the MySQL server using the mysql command-line client with the followi
      A) DELETE FROM Persons WHERE LastName='Tjessem' AND FirstName='Jakob'  #It will delete all such conditional rows
      B) DELETE * FROM table_name    #It is possible to delete all rows in a table without deleting the table itself
 
+8)  LIKE operator    # It is used in a WHERE clause to search for a specified pattern in a column.
+     A) SELECT * FROM Persons WHERE City LIKE 's%'   # select the rows living in a city that starts with "s" from the table
+     B) SELECT * FROM Persons WHERE City LIKE '%as'   # Same as above, city ends with "as"
+     C) SELECT * FROM Persons WHERE City LIKE '%tav%'  #Same as above, city contains "tav"
+     D) SELECT * FROM Persons WHERE City NOT LIKE '%tas%'    #Same as above, city doesnt contain "tas"
+     E) SELECT * FROM Persons WHERE City LIKE '[abc]%'   #Same as above, city starts with either a or b or c
+     F) SELECT * FROM Persons WHERE City LIKE '[abc]%'    #Same as above, city doesnt start with either a or b or c
+
+
+
 
 
 
