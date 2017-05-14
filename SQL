@@ -22,12 +22,23 @@ Connect to the MySQL server using the mysql command-line client with the followi
 ############################################################################################################################
 
 1) Select Function  #This fn is used to select data from a db. It is not case sensitive
+   A) SELECT LastName,FirstName FROM Persons    #This will selecte LastName & FirstName vars from Persons table
+   B) SELECT * FROM Persons     #This will select all the columns from Persons table
+   C) SELECT DISTINCT City FROM Persons   #It will select distinct cities from Persons table. Wont show dupilcate values
 
-A) SELECT LastName,FirstName FROM Persons    #This will selecte LastName & FirstName vars from Persons table
-B) SELECT * FROM Persons     #This will select all the columns from Persons table
-C) SELECT DISTINCT City FROM Persons   #It will select all the distinct cities from Persons table. Wont show dupilcate values
+
+2) WHERE Function   # This is used for filtering out the data
+    A) SELECT * FROM Persons WHERE City='Sandnes'   #It will give out all the columns which has city as "Sandnes"
+    B) SELECT * FROM Persons WHERE Year=1965    #It will shows all the values which has Year as 1965
 
 
+3) AND & OR operators    # The AND operator displays a record if both the first condition and the second condition are true.
+                          #The OR operator displays a record if either the first condition or the second condition is true.
+
+   A) SELECT * FROM Persons WHERE FirstName='Tove' AND LastName='Svendson'   #show values where both conditions r true
+   B) SELECT * FROM Persons WHERE FirstName='Tove' OR FirstName='Ola'
+   C) SELECT * FROM Persons WHERE LastName='Svendson' AND (FirstName='Tove' OR FirstName='Ola')
+      # C will select only the persons with the first name equal to "Tove" AND the last name equal to "Svendson"
 
 
 
