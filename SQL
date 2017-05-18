@@ -28,7 +28,7 @@ Connect to the MySQL server using the mysql command-line client with the followi
 
 
 2) WHERE Function   # This is used for filtering out the data
-    A) SELECT * FROM Persons WHERE City='Sandnes'   #It will give out all the columns which has city as "Sandnes"
+    A) SELECT * FROM Persons WHERE City='Sandnes'   #It will give out all the rows which has city as "Sandnes" and all columns
     B) SELECT * FROM Persons WHERE Year=1965    #It will shows all the values which has Year as 1965
 
 
@@ -38,13 +38,13 @@ Connect to the MySQL server using the mysql command-line client with the followi
     A) SELECT * FROM Persons WHERE FirstName='Tove' AND LastName='Svendson'   #show values where both conditions r true
     B) SELECT * FROM Persons WHERE FirstName='Tove' OR FirstName='Ola'
     C) SELECT * FROM Persons WHERE LastName='Svendson' AND (FirstName='Tove' OR FirstName='Ola')
-      # C will select only the persons with the first name equal to "Tove" AND the last name equal to "Svendson"
+      # C will select only the persons with the first name equal to "Tove" or "Ola" AND the last name equal to "Svendson"
 
 4)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
    SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC   #General syntax
  
     A) SELECT * FROM Persons ORDER BY LastName DESC    #select all the persons from the table above, however, we want to sort
-                                                       # the persons descending (aphbetical letters) by their last name.
+                                                       # the persons descending (alphabetical letters) by their last name.
 
 5) INSERT INTO    # Used for inserting new records into a table
    #INSERT INTO statement can be written into two forms. The first form doesn't specify the column names where the data will
@@ -52,8 +52,8 @@ Connect to the MySQL server using the mysql command-line client with the followi
       1)  INSERT INTO table_name VALUES (value1, value2, value3,...)
       2)  INSERT INTO table_name (column1, column2, column3,...) VALUES (value1, value2, value3,...)
 
-      A) INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger')
-      B) INSERT INTO Persons (P_Id, LastName, FirstName) VALUES (5, 'Tjessem', 'Jakob')
+      A) INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken', 'Stavanger')             #This will add info into 1st 5 columns
+      B) INSERT INTO Persons (P_Id, LastName, FirstName) VALUES (5, 'Tjessem', 'Jakob')      #insert data into specified columns
 
 6) UPDATE function.   # It can be used to update/edit an existing row in a table
       A) UPDATE Persons SET Address='Nissestien 67', City='Sandnes' WHERE LastName='Tjessem' AND FirstName='Jakob'
@@ -75,7 +75,13 @@ Connect to the MySQL server using the mysql command-line client with the followi
 9) IN operator      # The IN operator allows you to specify multiple values in a WHERE clause.
      A) SELECT * FROM Persons WHERE LastName IN ('top','kek') #Select rows which have lasname as top or kek in the table
 
-10) BETWEEN operator    #It selects a range of data between two values. The values can be numbers, text, or dates.
+10) BETWEEN operator    #is used in a WHERE clause to select a range of data between two values. It selects a range of data between
+                          two values. The values can be numbers, text, or dates.
+        SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2     #General syntax
+
+     A) SELECT * FROM Persons WHERE LastName BETWEEN 'Hansen' AND 'Pettersen'    #It will select persons with a last name alphabetically
+                                                      # between "Hansen" and "Pettersen" from the table above.
+     B) SELECT * FROM Persons WHERE LastName NOT BETWEEN 'Hansen' AND 'Pettersen'    # NOT BETWEEN to display results outside the range
 
 
 
