@@ -83,6 +83,29 @@ Connect to the MySQL server using the mysql command-line client with the followi
                                                       # between "Hansen" and "Pettersen" from the table above.
      B) SELECT * FROM Persons WHERE LastName NOT BETWEEN 'Hansen' AND 'Pettersen'    # NOT BETWEEN to display results outside the range
 
+11) ALIAS     # We can give a table or a column another name by using an alias. This can be a good thing to do if you have very long
+              or complex table names or column names.
+          SELECT column_name AS alias_name FROM table_name      #General syntax
+     
+   A) SELECT po.OrderID, p.LastName, p.FirstName FROM Persons AS p, Product_Orders AS po WHERE p.LastName='Hansen' AND p.FirstName='Ola'
+     #HEre we've given Persons table as p & Product_Order table as po. we want to list all the orders that "Ola Hansen" is responsible
+     for.  Here in B' we do the same without using aliases.
+   B) SELECT Product_Orders.OrderID, Persons.LastName, Persons.FirstName FROM Persons, Product_Orders WHERE Persons.LastName='Hansen' 
+       AND Persons.FirstName='Ola'
+         #Here also, we list all the orders that are from "Ola Hansen" w/o using any aliases
+
+12) JOIN:  The JOIN keyword is used in an SQL statement to query data from two or more tables, based on a relationship between certain
+           columns in these tables.
+           Tables in a database are often related to each other with keys.
+           A primary key is a column (or combination of columns) with a unique value for each row. Each primary key value must be
+           unique within the table. The purpose is to bind data together, across tables, w/o repeating all of the data in every table.
+
+
+
+
+
+
+
 
 
 
