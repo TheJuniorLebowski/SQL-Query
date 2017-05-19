@@ -21,6 +21,10 @@ Connect to the MySQL server using the mysql command-line client with the followi
 
 ############################################################################################################################
 
+show tables;             #It will show the tables of current database/schema
+select * from actor;     #It will populate the actor table
+
+
 1) Select Function  #This fn is used to select data from a db. It is not case sensitive
    A) SELECT LastName,FirstName FROM Persons    #This will selecte LastName & FirstName vars from Persons table
    B) SELECT * FROM Persons     #This will select all the columns from Persons table
