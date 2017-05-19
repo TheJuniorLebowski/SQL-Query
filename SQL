@@ -109,30 +109,39 @@ Connect to the MySQL server using the mysql command-line client with the followi
 
     SELECT column_name(s) FROM table_name1 INNER JOIN table_name2 ON table_name1.column_name=table_name2.column_name   #SYntax
 
-   A) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons INNER JOIN Orders ON Persons.P_Id=Orders.P_Id
-      ORDER BY Persons.LastName       #Inner Join Example
-      #Here we take last & 1st name from Persons, Order no. frm Orders table and then do inner join where P_Id from Persons is same
-      as P_Id from Orders. Here P_Id is primary key in Persons and foriegn key in the Orders table
+    A) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons INNER JOIN Orders ON Persons.P_Id=Orders.P_Id
+       ORDER BY Persons.LastName       #Inner Join Example
+       #Here we take last & 1st name from Persons, Order no. frm Orders table and then do inner join where P_Id from Persons is same
+       as P_Id from Orders. Here P_Id is primary key in Persons and foriegn key in the Orders table
 
-   B) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons LEFT JOIN Orders ON Persons.P_Id=Orders.P_Id
-      ORDER BY Persons.LastName      #Left join. It'll include only matching rows from 2nd table and all the rows from 1st table even
+    B) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons LEFT JOIN Orders ON Persons.P_Id=Orders.P_Id
+       ORDER BY Persons.LastName      #Left join. It'll include only matching rows from 2nd table and all the rows from 1st table even
                                      if they do not have a match in the 2nd table (Orders table)
    
-   C) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons RIGHT JOIN Orders ON Persons.P_Id=Orders.P_Id
-       ORDER BY Persons.LastName             # Right outer join. returns all the rows from the right table (Orders), even if there are
+    C) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons RIGHT JOIN Orders ON Persons.P_Id=Orders.P_Id
+        ORDER BY Persons.LastName             # Right outer join. returns all the rows from the right table (Orders), even if there are
                                               # no matches in the left table (Persons).
 
-   D) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons FULL JOIN Orders ON Persons.P_Id=Orders.P_Id
-      # Full Join. The FULL JOIN keyword returns all the rows from the left table (Persons), and all the rows from the right table
-      (Orders). If there are rows in "Persons" that do not have matches in "Orders", or if there are rows in "Orders" that do not have
-      matches in "Persons", those rows will be listed as well.
+    D) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons FULL JOIN Orders ON Persons.P_Id=Orders.P_Id
+       # Full Join. The FULL JOIN keyword returns all the rows from the left table (Persons), and all the rows from the right table
+         (Orders). If there are rows in "Persons" that do not have matches in "Orders", or if there are rows in "Orders" that do not
+          have matches in "Persons", those rows will be listed as well.
 
 
+ 13) UNION: This operator combines two or more SELECT statements.The UNION operator selects only distinct values by default. To allow
+           duplicate values, use UNION ALL operator.
+           SELECT column_name(s) FROM table_name1 UNION ALL SELECT column_name(s) FROM table_name2     #General Syntax
 
+      A) SELECT E_Name FROM Employees_Norway UNION SELECT E_Name FROM Employees_USA
+         #It will give out all the distint E_name column from both the tables
 
-
-
-
+ 14) INSERT INTO: It is used for creating back up copies of files
+     insert INTO new_table select * FROM existing table 
+ 
+      A) CREATE TABLE actor_kek LIKE actor;   #Here we create a new empty table actor_kek similar as actor
+         INSERT INTO actor_kek select * FROM actor;  #Then we copy value of actor table into the actor_kek
+       
+      B) INSERT INTO LastName,Firstname INTO actor_kek FROM actor WHERE City='Sandnes' # Using INSERT INTO with WHERE clause
 
 
 
