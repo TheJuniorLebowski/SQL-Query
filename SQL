@@ -157,10 +157,10 @@ select * from actor;     #It will populate the actor table
     ....
     )
    
-     A) CREATE TABLE Persons               #This functon will create a table PERSONS with 5 columns and their variable type
+     A) CREATE TABLE Persons               #This functon will create an empty table PERSONS with 5 columns and their variable type
         (                                  # P_Id is int type and will hold a number; rest of the vars will hold varchar with characer
          P_Id int,                          # length of 255
-         LastName varchar(255),
+         LastName varchar(255),              # The empty table can be filled with data with the INSERT INTO statement.
          FirstName varchar(255),
          Address varchar(255),
          City varchar(255)
