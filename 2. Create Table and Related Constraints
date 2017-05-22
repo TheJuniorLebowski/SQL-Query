@@ -65,6 +65,8 @@
         CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)
         )
 
+    The ALTER statement is always used with "ADD", "DROP" and "MODIFY" commands according to the situation.
+
    C)   ALTER TABLE Persons        # We can create a UNIQUE constraint on the "P_Id" column when the table is already created
         ADD UNIQUE (P_Id)          # using ALTER TABLE command 
 
@@ -108,6 +110,38 @@
     E)  ALTER TABLE Persons       #Drop the primary key constraint from a table
         DROP PRIMARY KEY
 
+5)   FORIEGN KEY: A FOREIGN KEY in one table points to a PRIMARY KEY in another table.
+
+    A)  CREATE TABLE Orders       # Creating a FOREIGN KEY on the "P_Id" column when the "Orders" table is created:
+        (
+        O_Id int NOT NULL,
+        OrderNo int NOT NULL,
+        P_Id int,
+        PRIMARY KEY (O_Id),
+        FOREIGN KEY (P_Id) REFERENCES Persons(P_Id)
+        )
+
+    B)  CREATE TABLE Orders             # To allow naming of a FOREIGN KEY constraint, and for defining a FOREIGN KEY
+        (                               # constraint on multiple columns, use this SQL syntax
+        O_Id int NOT NULL,
+        OrderNo int NOT NULL,
+        P_Id int,
+        PRIMARY KEY (O_Id),
+        CONSTRAINT fk_PerOrders FOREIGN KEY (P_Id)
+        REFERENCES Persons(P_Id)
+        )
+
+    C)  ALTER TABLE Orders                 # Create=ing a FOREIGN KEY constraint on the "P_Id" column when the "Orders" table is
+        ADD FOREIGN KEY (P_Id)             # already created, use this SQL:
+        REFERENCES Persons(P_Id)
+
+    D)  ALTER TABLE Orders                # To allow naming of a FOREIGN KEY constraint, and for defining a FOREIGN KEY constraint
+        ADD CONSTRAINT fk_PerOrders       # on multiple columns, use this SQL syntax
+        FOREIGN KEY (P_Id)
+        REFERENCES Persons(P_Id)
+
+    E)  ALTER TABLE Orders
+DROP FOREIGN KEY fk_PerOrders
 
 
 
