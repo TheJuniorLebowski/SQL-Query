@@ -19,7 +19,8 @@ mysqladmin --version #Check the version of MySql
 Connect to the MySQL server using the mysql command-line client with the following command:
 
 
-############################################################################################################################
+#############################################################################################################################
+###################################          BASIC COMMAND      #############################################################
 
 show tables;             #It will show the tables of current database/schema
 select * from actor;     #It will populate the actor table
@@ -146,38 +147,6 @@ select * from actor;     #It will populate the actor table
          INSERT INTO actor_kek select * FROM actor;  #Then we copy value of actor table into the actor_kek
        
       B) INSERT INTO LastName,Firstname INTO actor_kek FROM actor WHERE City='Sandnes' # Using INSERT INTO with WHERE clause
-
-
-15) CREATE TABLE Function: This fn is used for creating a table in a database
-   CREATE TABLE table_name      #General syntax for table creation. We need to mention the data type for columns as well
-   (
-    column_name1 data_type,
-    column_name2 data_type,
-    column_name3 data_type,
-    ....
-    )
-   
-     A) CREATE TABLE Persons               #This functon will create an empty table PERSONS with 5 columns and their variable type
-        (                                  # P_Id is int type and will hold a number; rest of the vars will hold varchar with characer
-         P_Id int,                          # length of 255
-         LastName varchar(255),              # The empty table can be filled with data with the INSERT INTO statement.
-         FirstName varchar(255),
-         Address varchar(255),
-         City varchar(255)
-         )
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
