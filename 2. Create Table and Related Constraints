@@ -1,28 +1,68 @@
 
+   When a SQL table is created, constraints are used to limit the type of data that can go into a table. Constraints can be specified
+   when a table is created (with the CREATE TABLE statement) or after the table is created (with the ALTER TABLE statement).
+   We will focus on the following constraints after the table is created:
+     --NOT NULL
+     --UNIQUE
+     --PRIMARY KEY
+     --FOREIGN KEY
+     --CHECK
+     --DEFAULT
+
 
 1) CREATE TABLE Function:   This fn is used for creating a table in a database
-   CREATE TABLE table_name      #General syntax for table creation. We need to mention the data type for columns as well
-   (
-    column_name1 data_type,
-    column_name2 data_type,
-    column_name3 data_type,
-    ....
-    )
+      CREATE TABLE table_name      #General syntax for table creation. We need to mention the data type for columns as well
+      (
+      column_name1 data_type,
+      column_name2 data_type,
+      column_name3 data_type,
+      ....
+      )
    
-     A) CREATE TABLE Persons               #This functon will create an empty table PERSONS with 5 columns and their variable type
+   A)   CREATE TABLE Persons               #This functon will create an empty table PERSONS with 5 columns and their variable type
         (                                  # P_Id is int type and will hold a number; rest of the vars will hold varchar with characer
-         P_Id int,                          # length of 255
-         LastName varchar(255),              # The empty table can be filled with data with the INSERT INTO statement.
-         FirstName varchar(255),
-         Address varchar(255),
-         City varchar(255)
-         )
+        P_Id int,                          # length of 255
+        LastName varchar(255),              # The empty table can be filled with data with the INSERT INTO statement.
+        FirstName varchar(255),
+        Address varchar(255),
+        City varchar(255)
+        )
 
+ 2) SQL NO NULL constraint: This constraint enforces a column to not accept null values. The NOT NULL constraint enforces a field to
+        always contain a value. This means that you cannot insert a new record, or update a record w/o adding a value to this field.
 
+    A)  CREATE TABLE Persons
+        (                                   # SQL enforces the "P_Id" column and the "LastName" column to not accept NULL values
+        P_Id int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Address varchar(255),
+        City varchar(255)
+        )
 
+ 3) SQL UNIQUE constraint: The UNIQUE constraint uniquely identifies each record in a database table. The UNIQUE and PRIMARY KEY
+       constraints both provide a guarantee for uniqueness for a column or set of columns. A PRIMARY KEY constraint automatically
+       has a UNIQUE constraint defined on it. Note that you can have many UNIQUE constraints per table, but only one PRIMARY
+       KEY constraint per table.
 
+    A)  CREATE TABLE Persons
+        (                            # SQL creates a UNIQUE constraint on the "P_Id" column when the "Persons" table is created
+        P_Id int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Address varchar(255),
+        City varchar(255),
+        UNIQUE (P_Id)
+        )
 
-
+   B)   CREATE TABLE Persons
+        (                                    #To allow naming of a UNIQUE constraint, and for defining a UNIQUE constraint on multiple        P_Id int NOT NULL,
+        LastName varchar(255) NOT NULL,       #  columns, use this SQL syntax
+        FirstName varchar(255),
+        Address varchar(255),
+        City varchar(255),
+        CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)
+        )
 
 
 
