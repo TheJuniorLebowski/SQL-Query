@@ -65,18 +65,48 @@
         CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)
         )
 
-   C)   ALTER TABLE Persons     # We can create a UNIQUE constraint on the "P_Id" column when the table is already created
-        ADD UNIQUE (P_Id)       # using ALTER TABLE command 
+   C)   ALTER TABLE Persons        # We can create a UNIQUE constraint on the "P_Id" column when the table is already created
+        ADD UNIQUE (P_Id)          # using ALTER TABLE command 
 
    D)   ALTER TABLE Persons                                    # To allow naming of a UNIQUE constraint, and for defining a UNIQUE 
         ADD CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)       # constraint on multiple columns, use this SQL syntax
 
-   E)   ALTER TABLE Persons              # To drop a UNIQUE constraint, use this SQL
+   E)   ALTER TABLE Persons                # To drop a UNIQUE constraint, use this SQL
         DROP INDEX uc_PersonID
 
 
+ 4) PRIMARY KEY: The PRIMARY KEY constraint uniquely identifies each record in a database table. Primary keys must contain unique
+           values. A primary key column cannot contain NULL values. Each table should have a primary key, and each table can have
+           only ONE primary key.
 
+    A)  CREATE TABLE Persons            # This creates a PRIMARY KEY on the "P_Id" column when the "Persons" table is created:
+        (
+        P_Id int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Address varchar(255),
+        City varchar(255),
+        PRIMARY KEY (P_Id)
+        )
 
+    B)  CREATE TABLE Persons           # To allow naming of a PRIMARY KEY constraint, and for defining a PRIMARY KEY constraint on 
+        (                              #  multiple columns, use this SQL syntax:
+        P_Id int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),             # Note: In the example above there is only ONE PRIMARY KEY (pk_PersonID). However, the         
+        Address varchar(255),               # # value of the pk_PersonID is made up of two columns (P_Id and LastName).
+        City varchar(255),  
+        CONSTRAINT pk_PersonID PRIMARY KEY (P_Id,LastName)
+        )
+
+    C)  ALTER TABLE Persons         # Creating a PRIMARY KEY constraint on the "P_Id" column when the table is already created
+        ADD PRIMARY KEY (P_Id)
+
+    D)  ALTER TABLE Persons           # To allow naming of a PRIMARY KEY constraint, and for defining a PRIMARY KEY constraint 
+        ADD CONSTRAINT pk_PersonID PRIMARY KEY (P_Id,LastName)      # on multiple columns, use this sql syntax
+
+    E)  ALTER TABLE Persons       #Drop the primary key constraint from a table
+        DROP PRIMARY KEY
 
 
 
