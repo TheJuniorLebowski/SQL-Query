@@ -56,13 +56,32 @@
         )
 
    B)   CREATE TABLE Persons
-        (                                    #To allow naming of a UNIQUE constraint, and for defining a UNIQUE constraint on multiple        P_Id int NOT NULL,
-        LastName varchar(255) NOT NULL,       #  columns, use this SQL syntax
+        (                                    #To allow naming of a UNIQUE constraint, and for defining a UNIQUE constraint on multiple
+        P_Id int NOT NULL                      #  columns, use this SQL syntax
+        LastName varchar(255) NOT NULL,      
         FirstName varchar(255),
         Address varchar(255),
         City varchar(255),
         CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)
         )
+
+   C)   ALTER TABLE Persons     # We can create a UNIQUE constraint on the "P_Id" column when the table is already created
+        ADD UNIQUE (P_Id)       # using ALTER TABLE command 
+
+   D)   ALTER TABLE Persons                                    # To allow naming of a UNIQUE constraint, and for defining a UNIQUE 
+        ADD CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)       # constraint on multiple columns, use this SQL syntax
+
+   E)   ALTER TABLE Persons              # To drop a UNIQUE constraint, use this SQL
+        DROP INDEX uc_PersonID
+
+
+
+
+
+
+
+
+
 
 
 
