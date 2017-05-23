@@ -198,6 +198,14 @@
        OrderDate date DEFAULT GETDATE()
        )
 
+    C) ALTER TABLE Persons         #To create a DEFAULT constraint on the "City" column when the table is already created, use this
+       ALTER City SET DEFAULT 'SANDNES'
+
+    D) ALTER TABLE Persons        # To drop a DEFAULT constraint, use the following SQL:
+       ALTER City DROP DEFAULT
+
+
+
 
 
 
