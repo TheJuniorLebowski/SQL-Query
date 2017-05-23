@@ -28,7 +28,7 @@
         City varchar(255)
         )
 
- 2) SQL NO NULL constraint: This constraint enforces a column to not accept null values. The NOT NULL constraint enforces a field to
+ 2) SQL NOT NULL constraint: This constraint enforces a column to not accept null values. The NOT NULL constraint enforces a field to
         always contain a value. This means that you cannot insert a new record, or update a record w/o adding a value to this field.
 
     A)  CREATE TABLE Persons
@@ -77,9 +77,9 @@
         DROP INDEX uc_PersonID
 
 
- 4) PRIMARY KEY: The PRIMARY KEY constraint uniquely identifies each record in a database table. Primary keys must contain unique
-           values. A primary key column cannot contain NULL values. Each table should have a primary key, and each table can have
-           only ONE primary key.
+ 4) PRIMARY KEY constraint: The PRIMARY KEY constraint uniquely identifies each record in a database table. Primary keys must contain
+           unique values. A primary key column cannot contain NULL values. Each table should have a primary key, and each table can
+           have only ONE primary key.
 
     A)  CREATE TABLE Persons            # This creates a PRIMARY KEY on the "P_Id" column when the "Persons" table is created:
         (
@@ -110,7 +110,7 @@
     E)  ALTER TABLE Persons       #Drop the primary key constraint from a table
         DROP PRIMARY KEY
 
-5)   FORIEGN KEY: A FOREIGN KEY in one table points to a PRIMARY KEY in another table.
+5)   FORIEGN KEY constraint: A FOREIGN KEY in one table points to a PRIMARY KEY in another table.
 
     A)  CREATE TABLE Orders       # Creating a FOREIGN KEY on the "P_Id" column when the "Orders" table is created:
         (
@@ -140,8 +140,64 @@
         FOREIGN KEY (P_Id)
         REFERENCES Persons(P_Id)
 
-    E)  ALTER TABLE Orders
-DROP FOREIGN KEY fk_PerOrders
+    E)  ALTER TABLE Orders                    # Drop a foreign key constraint
+        DROP FOREIGN KEY fk_PerOrders
+
+
+  6) CHECK constraint: The CHECK constraint is used to limit the value range that can be placed in a column. If you define a CHECK
+       constraint on a single column it allows only certain values for this column. If you define a CHECK constraint on a table it
+       can limit the values in certain columns based on values in other columns in the row.
+
+    A) CREATE TABLE Persons         # creates a CHECK constraint on the "P_Id" column when the "Persons" table is created.The CHECK 
+       (                            # constraint specifies that the column "P_Id" must only include integers greater than 0.
+       P_Id int NOT NULL,
+       LastName varchar(255) NOT NULL,
+       FirstName varchar(255),
+       Address varchar(255),
+       City varchar(255),
+       CHECK (P_Id>0)
+       )
+
+   B)  CREATE TABLE Persons                 # To allow naming of a CHECK constraint, and for defining a CHECK constraint on multiple
+       (                                    # columns, use this SQL syntax:
+       P_Id int NOT NULL,
+       LastName varchar(255) NOT NULL,
+       FirstName varchar(255),
+       Address varchar(255),
+       City varchar(255),
+       CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes')
+       ) 
+
+    C) ALTER TABLE Persons        # To create a CHECK constraint on the "P_Id" column when the table is already created, use this SQL
+       ADD CHECK (P_Id>0)
+
+    D) ALTER TABLE Persons       # To allow naming of a CHECK constraint & for defining a CHECK constraint on multiple columns,use this
+       ADD CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes')
+
+    E) ALTER TABLE Persons         # To drop a CHECK constraint, use the following SQL:
+       DROP CONSTRAINT chk_Person
+
+
+7) DEFAULT constraint: The DEFAULT constraint is used to insert a default value into a column. The default value will be added to all
+      new records, if no other value is specified.
+
+    A) CREATE TABLE Persons     # This SQL creates a DEFAULT constraint on the "City" column when the "Persons" table is created:
+       (
+       P_Id int NOT NULL,
+       LastName varchar(255) NOT NULL,
+       FirstName varchar(255),
+       Address varchar(255),
+       City varchar(255) DEFAULT 'Sandnes'
+       )
+
+    B) CREATE TABLE Orders     # The DEFAULT constraint can also be used to insert system values, by using functions like GETDATE():
+       (
+       O_Id int NOT NULL,
+       OrderNo int NOT NULL,
+       P_Id int,
+       OrderDate date DEFAULT GETDATE()
+       )
+
 
 
 
