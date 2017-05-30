@@ -1,6 +1,47 @@
 
 
+1) NULL function: NULL values represent missing unknown data. By default, a table column can hold NULL values. If a column in a table is
+        optional, we can insert a new record or update an existing record without adding a value to this column. This means that the
+        field will be saved with a NULL value. It is not possible to compare NULL and 0; they are not equivalent.
 
+     A) IS NULL function: We use IS NULL to look for null values. For e.g.
+           SELECT LastName,FirstName,Address FROM Persons  # It will select LN, FN & Adress from Persons where Address is NULL
+           WHERE Address IS NULL
+
+     B)   SELECT LastName,FirstName,Address FROM Persons       # It will select LN, FN & Adress from Persons where Address is not empty
+          WHERE Address IS NOT NULL  
+
+     C)   SELECT ProductName,UnitPrice*(UnitsInStock+IFNULL(UnitsOnOrder,0)) FROM Products 
+          # Here if UnitsOnOrder has null values, it will be considered as zero
+
+2) DATE and TIME functions in MySQL
+     A)  NOW() Returns the current date and time
+     B)  CURDATE() Returns the current date
+     C)  CURTIME() Returns the current time
+     D)  DATE() Extracts the date part of a date or date/time expression
+     E)  EXTRACT() Returns a single part of a date/time
+     F)  DATE_ADD() Adds a specified time interval to a date
+     E)  DATE_SUB() Subtracts a specified time interval from a date
+     F)  DATEDIFF() Returns the number of days between two dates
+     G)  DATE_FORMAT() Displays date/time data in different formats
+
+ 3) EXTRACT function:EXTRACT() function is used to return a single part of a date/time, such as year, month, day, hour, minute, etc.
+      EXTRACT(unit FROM date)   #General syntax, where unit could be month, year, day, hour, minute etc    
+
+     A) SELECT EXTRACT(YEAR FROM OrderDate) AS OrderYear,   # Extract Year as Order Year, Month as OrderMonth, Day as OrderDay
+        EXTRACT(MONTH FROM OrderDate) AS OrderMonth,        # from Orders table where OrderId is 1.
+        EXTRACT(DAY FROM OrderDate) AS OrderDay,
+        FROM Orders
+        WHERE OrderId=1
+
+ 
+ 4) DATE_ADD function: The DATE_ADD() function adds a specified time interval to a date.
+     
+     SELECT OrderId,DATE_ADD(OrderDate,INTERVAL 45 DAY) AS OrderPayDate FROM Orders  # In this syntax, we add 45 days in
+                                                                                      # in OrderDate and pull it as OrderPayDate
+
+     SELECT OrderId,DATE_SUB(OrderDate,INTERVAL 2 MONTH) AS SubtractDate FROM Orders  # Here we subtract 2 months from OrderDate
+                                                                                      # and pull it as SubtractDate
 
 
 
