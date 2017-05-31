@@ -1,0 +1,26 @@
+
+
+
+
+1) CAST function: Used for changing from one datatype to another:
+    SELECT CAST(my_table.DateColumn AS CHAR(10)) as TextColumn FROM my_table;   #This will chnage the Date.Column as Character
+
+2) Getting all the columns only from a table:    show COLUMNS from jos_lender_portfolio;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
