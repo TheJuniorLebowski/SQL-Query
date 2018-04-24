@@ -9,6 +9,15 @@
 
 
 
+SELECT DISTINCT fid FROM `jos_sitevisit_tag_value`
+
+select count(distinct fid) from jos_sitevisit_tag_value
+
+show tables
+
+show tables like '%jos_sitevisit%'
+
+describe jos_sitevisit_tag_value
 
 
 
