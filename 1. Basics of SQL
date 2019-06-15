@@ -106,6 +106,7 @@ Describe actor;
      E) SELECT * FROM Persons WHERE City LIKE '[abc]%'   #Same as above, city starts with either a or b or c
      F) SELECT * FROM Persons WHERE City LIKE '[^abc]%'    #Same as above, city doesnt start with either a or b or c
      G) SELECT name FROM people WHERE name LIKE '_r%'  # Get the names of people whose names have 'r' as the second letter.
+     H) SELECT name FROM people WHERE name NOT LIKE 'A%' # Get the names of people whose names don't start with A.
 
 
 
