@@ -60,6 +60,7 @@ Describe actor;
        # Get all details for Spanish language films released after 2000, but before 2010.
        
     E) SELECT title FROM films WHERE (release_year = 1994 OR release_year = 1995) AND (certification = 'PG' OR certification = 'R');
+       # selects all films that were released in 1994 or 1995 which had a rating of PG or R.
 
 
 4)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
