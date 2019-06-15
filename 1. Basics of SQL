@@ -105,6 +105,9 @@ Describe actor;
 
 9) IN operator      # The IN operator allows you to specify multiple values in a WHERE clause.
      A) SELECT * FROM Persons WHERE LastName IN ('top','kek') #Select rows which have lasname as top or kek in the table
+     B) SELECT title, release_year FROM films WHERE release_year IN (1990, 2000) AND duration > 120
+        # Get the title and release year of all films released in 1990 or 2000 that were longer than two hours.
+     c) SELECT title, language FROM films WHERE language in ('English', 'Spanish', 'French') # Get title lang that are in either en, fr or sp.
 
 
 
