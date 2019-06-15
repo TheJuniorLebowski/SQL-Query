@@ -41,14 +41,14 @@ Describe actor;
        # selects all films that were released in 1994 or 1995 which had a rating of PG or R.
 
 
-9) IN operator      # The IN operator allows you to specify multiple values in a WHERE clause.
+4) IN operator      # The IN operator allows you to specify multiple values in a WHERE clause.
      A) SELECT * FROM Persons WHERE LastName IN ('top','kek') #Select rows which have lasname as top or kek in the table
      B) SELECT title, release_year FROM films WHERE release_year IN (1990, 2000) AND duration > 120
         # Get the title and release year of all films released in 1990 or 2000 that were longer than two hours.
      c) SELECT title, language FROM films WHERE language in ('English', 'Spanish', 'French') # Get title lang that are in either en, fr or sp.
 
 
-10) BETWEEN operator    #is used in a WHERE clause to select a range of data between two values. It selects a range of data between
+5) BETWEEN operator    #is used in a WHERE clause to select a range of data between two values. It selects a range of data between
                           two values. The values can be numbers, text, or dates.
         SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2     #General syntax
 
@@ -57,7 +57,7 @@ Describe actor;
      B) SELECT * FROM Persons WHERE LastName NOT BETWEEN 'Hansen' AND 'Pettersen'    # NOT BETWEEN to display results outside the range
 
 
-10) NULL operator    #In SQL, NULL represents a missing or unknown value. You can check for NULL values using the expression IS NULL.
+6) NULL operator    #In SQL, NULL represents a missing or unknown value. You can check for NULL values using the expression IS NULL.
         # We can filter out missing values so you only get results which are not NULL using IS NOT NULL
        
      A) SELECT COUNT(*) FROM people WHERE birthdate IS NULL;  # count the number of missing birth dates in the people table:
@@ -66,7 +66,7 @@ Describe actor;
           # Here if UnitsOnOrder has null values, it will be considered as zero
 
 
-8)  LIKE operator    # It is used in a WHERE clause to search for a specified pattern in a column.
+7)  LIKE operator    # It is used in a WHERE clause to search for a specified pattern in a column.
      A) SELECT * FROM Persons WHERE City LIKE 's%'   # select the rows living in a city that starts with "s" from the table
      B) SELECT * FROM Persons WHERE City LIKE '%as'   # Same as above, city ends with "as"
      C) SELECT * FROM Persons WHERE City LIKE '%tav%'  #Same as above, city contains "tav"
@@ -77,7 +77,7 @@ Describe actor;
      H) SELECT name FROM people WHERE name NOT LIKE 'A%' # Get the names of people whose names don't start with A.
 
 
-11) ALIAS     # We can give a table or a column another name by using an alias. This can be a good thing to do if you have very long
+8) ALIAS     # We can give a table or a column another name by using an alias. This can be a good thing to do if you have very long
               or complex table names or column names.
           SELECT column_name AS alias_name FROM table_name      #General syntax
      
@@ -90,7 +90,7 @@ Describe actor;
               #covers. Alias the result as number_of_decades
 
 
-5) SQL Aggregate Functions:  SQL aggregate functions return a single value, calculated from values in a column.
+9) SQL Aggregate Functions:  SQL aggregate functions return a single value, calculated from values in a column.
         AVG() - Returns the average value
         COUNT() - Returns the number of rows
         FIRST() - Returns the first value
@@ -106,7 +106,7 @@ Describe actor;
 
 
 
-4)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
+10)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
    SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC   #General syntax
  
     A) SELECT * FROM Persons ORDER BY LastName DESC    #select all the persons from the table above, however, we want to sort
@@ -117,7 +117,7 @@ Describe actor;
 
 
 
-5) INSERT INTO    # Used for inserting new records into a table
+11) INSERT INTO    # Used for inserting new records into a table
    #INSERT INTO statement can be written into two forms. The first form doesn't specify the column names where the data will
    # be inserted, only their values. The second form specifies both the column names and the values to be inserted.
       1)  INSERT INTO table_name VALUES (value1, value2, value3,...)
@@ -128,13 +128,13 @@ Describe actor;
 
 
 
-6) UPDATE function.   # It can be used to update/edit an existing row in a table
+12) UPDATE function.   # It can be used to update/edit an existing row in a table
       A) UPDATE Persons SET Address='Nissestien 67', City='Sandnes' WHERE LastName='Tjessem' AND FirstName='Jakob'
        #IT will update Address & City column in Persons table where Lastname is Tjessam and FIrstName is Jakob
        #If we had not mentioned WHERE arg, it would have updated all the rows in the Address and CIty columns
 
 
-7)  DELETE function   #Delete rows in a table
+13)  DELETE function   #Delete rows in a table
      A) DELETE FROM Persons WHERE LastName='Tjessem' AND FirstName='Jakob'  #It will delete all such conditional rows
      B) DELETE * FROM table_name    #It is possible to delete all rows in a table without deleting the table itself
 
@@ -143,7 +143,7 @@ Describe actor;
 
 
 
-12) JOIN:  The JOIN keyword is used in an SQL statement to query data from two or more tables, based on a relationship between certain
+14) JOIN:  The JOIN keyword is used in an SQL statement to query data from two or more tables, based on a relationship between certain
            columns in these tables.
            Tables in a database are often related to each other with keys.
            A primary key is a column (or combination of columns) with a unique value for each row. Each primary key value must be
@@ -178,7 +178,7 @@ Describe actor;
 
 
 
- 13) UNION: This operator combines two or more SELECT statements.The UNION operator selects only distinct values by default. To allow
+ 15) UNION: This operator combines two or more SELECT statements.The UNION operator selects only distinct values by default. To allow
            duplicate values, use UNION ALL operator.
            SELECT column_name(s) FROM table_name1 UNION ALL SELECT column_name(s) FROM table_name2     #General Syntax
 
@@ -188,7 +188,7 @@ Describe actor;
 
 
 
- 14) INSERT INTO: It is used for creating back up copies of files
+ 16) INSERT INTO: It is used for creating back up copies of files
      insert INTO new_table select * FROM existing table 
  
       A) CREATE TABLE actor_kek LIKE actor;   #Here we create a new empty table actor_kek similar as actor
