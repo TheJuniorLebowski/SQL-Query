@@ -119,9 +119,7 @@ Describe actor;
               or complex table names or column names.
           SELECT column_name AS alias_name FROM table_name      #General syntax
      
-   A) SELECT po.OrderID, p.LastName, p.FirstName FROM Persons AS p, Product_Orders AS po WHERE p.LastName='Hansen' AND p.FirstName='Ola'
-     #HEre we've given Persons table as p & Product_Order table as po. we want to list all the orders that "Ola Hansen" is responsible
-     for.  Here in B' we do the same without using aliases.
+   A) SELECT title, gross - budget AS net_profit FROM films;   # Get the title and net profit (gross- budget) for all films
    B) SELECT Product_Orders.OrderID, Persons.LastName, Persons.FirstName FROM Persons, Product_Orders WHERE Persons.LastName='Hansen' 
        AND Persons.FirstName='Ola'
          #Here also, we list all the orders that are from "Ola Hansen" w/o using any aliases
