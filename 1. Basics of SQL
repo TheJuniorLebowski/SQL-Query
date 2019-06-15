@@ -35,6 +35,10 @@ Describe actor;
    B) SELECT * FROM Persons     #This will select all the columns from Persons table
    C) SELECT DISTINCT City FROM Persons   #It will select distinct cities from Persons table. Wont show dupilcate values
    D) SELECT * FROM Persons LIMIT 10    #This will select all the columns from Persons table but show only 10 rows
+   
+   E) SELECT COUNT(*) from Persons     # It will count the number of rows in Persons table
+   F) SELECT COUNT(City) from Persons  # It will count the number of non-missing values in City
+   G) SELECT COUNT(DISTINCT City) FROM Persons;   # Coun the non-missing distinct birthdates
 
 
 2) WHERE Function   # This is used for filtering out the data
