@@ -1,3 +1,4 @@
+
 2) DATE and TIME functions in MySQL
      A)  NOW() Returns the current date and time
      B)  CURDATE() Returns the current date
@@ -36,6 +37,11 @@
         MAX() - Returns the largest value
         MIN() - Returns the smallest value
         SUM() - Returns the sum
+        
+        SELECT SUM(duration) FROM films; # Total duration of all films
+        SELECT Min(duration) FROM films;  # Get the duration of the shortest film.
+        
+        
 
    6) SQL Scalar Functions: SQL scalar functions return a single value, based on the input value.
         UCASE() - Converts a field to upper case
