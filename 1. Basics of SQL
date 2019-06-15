@@ -70,6 +70,8 @@ Describe actor;
        
      A) SELECT COUNT(*) FROM people WHERE birthdate IS NULL;  # count the number of missing birth dates in the people table:
      B) SELECT name FROM people WHERE birthdate IS NOT NULL;  # names of all ppl whose birth dates are not missing in the people table
+     C) SELECT ProductName,UnitPrice*(UnitsInStock+IFNULL(UnitsOnOrder,0)) FROM Products; 
+          # Here if UnitsOnOrder has null values, it will be considered as zero
 
 
 
