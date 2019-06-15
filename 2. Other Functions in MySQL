@@ -28,21 +28,7 @@
      SELECT OrderId,DATE_SUB(OrderDate,INTERVAL 2 MONTH) AS SubtractDate FROM Orders  # Here we subtract 2 months from OrderDate
                                                                                       # and pull it as SubtractDate
 
-
-  5) SQL Aggregate Functions:  SQL aggregate functions return a single value, calculated from values in a column.
-        AVG() - Returns the average value
-        COUNT() - Returns the number of rows
-        FIRST() - Returns the first value
-        LAST() - Returns the last value
-        MAX() - Returns the largest value
-        MIN() - Returns the smallest value
-        SUM() - Returns the sum
-        
-        SELECT SUM(duration) FROM films; # Total duration of all films
-        SELECT SUM(budget) FROM films WHERE release_year >= 2010;;  #  total budget of movies made in the year 2010 or later
-        SELECT MAX(release_year) - MIN(release_year) AS difference FROM films #No. years between the newest film & oldest film. aliasd as difference
-
-        
+       
 
    6) SQL Scalar Functions: SQL scalar functions return a single value, based on the input value.
         UCASE() - Converts a field to upper case
