@@ -41,19 +41,11 @@ Describe actor;
        # selects all films that were released in 1994 or 1995 which had a rating of PG or R.
 
 
-4)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
-   SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC   #General syntax
- 
-    A) SELECT * FROM Persons ORDER BY LastName DESC    #select all the persons from the table above, however, we want to sort
-                                                       # the persons descending (alphabetical letters) by their last name.
-
-
 9) IN operator      # The IN operator allows you to specify multiple values in a WHERE clause.
      A) SELECT * FROM Persons WHERE LastName IN ('top','kek') #Select rows which have lasname as top or kek in the table
      B) SELECT title, release_year FROM films WHERE release_year IN (1990, 2000) AND duration > 120
         # Get the title and release year of all films released in 1990 or 2000 that were longer than two hours.
      c) SELECT title, language FROM films WHERE language in ('English', 'Spanish', 'French') # Get title lang that are in either en, fr or sp.
-
 
 
 10) BETWEEN operator    #is used in a WHERE clause to select a range of data between two values. It selects a range of data between
@@ -72,6 +64,54 @@ Describe actor;
      B) SELECT name FROM people WHERE birthdate IS NOT NULL;  # names of all ppl whose birth dates are not missing in the people table
      C) SELECT ProductName,UnitPrice*(UnitsInStock+IFNULL(UnitsOnOrder,0)) FROM Products; 
           # Here if UnitsOnOrder has null values, it will be considered as zero
+
+
+8)  LIKE operator    # It is used in a WHERE clause to search for a specified pattern in a column.
+     A) SELECT * FROM Persons WHERE City LIKE 's%'   # select the rows living in a city that starts with "s" from the table
+     B) SELECT * FROM Persons WHERE City LIKE '%as'   # Same as above, city ends with "as"
+     C) SELECT * FROM Persons WHERE City LIKE '%tav%'  #Same as above, city contains "tav"
+     D) SELECT * FROM Persons WHERE City NOT LIKE '%tas%'    #Same as above, city doesnt contain "tas"
+     E) SELECT * FROM Persons WHERE City LIKE '[abc]%'   #Same as above, city starts with either a or b or c
+     F) SELECT * FROM Persons WHERE City LIKE '[^abc]%'    #Same as above, city doesnt start with either a or b or c
+     G) SELECT name FROM people WHERE name LIKE '_r%'  # Get the names of people whose names have 'r' as the second letter.
+     H) SELECT name FROM people WHERE name NOT LIKE 'A%' # Get the names of people whose names don't start with A.
+
+
+11) ALIAS     # We can give a table or a column another name by using an alias. This can be a good thing to do if you have very long
+              or complex table names or column names.
+          SELECT column_name AS alias_name FROM table_name      #General syntax
+     
+   A) SELECT title, gross - budget AS net_profit FROM films;   # Get the title and net profit (gross- budget) for all films
+   B) SELECT Product_Orders.OrderID, Persons.LastName, Persons.FirstName FROM Persons, Product_Orders WHERE Persons.LastName='Hansen' 
+       AND Persons.FirstName='Ola'
+         #Here also, we list all the orders that are from "Ola Hansen" w/o using any aliases
+   C) SELECT MAX(release_year) - MIN(release_year) AS difference FROM films #No. years b/w the newest film & oldest film aliasd as difference
+   D) SELECT (MAX(release_year) - MIN(release_year))/10.0 AS numder_of_decades FROM films   # Get the number of decades the films table
+              #covers. Alias the result as number_of_decades
+
+
+5) SQL Aggregate Functions:  SQL aggregate functions return a single value, calculated from values in a column.
+        AVG() - Returns the average value
+        COUNT() - Returns the number of rows
+        FIRST() - Returns the first value
+        LAST() - Returns the last value
+        MAX() - Returns the largest value
+        MIN() - Returns the smallest value
+        SUM() - Returns the sum
+        
+        SELECT SUM(duration) FROM films; # Total duration of all films
+        SELECT SUM(budget) FROM films WHERE release_year >= 2010;;  #  total budget of movies made in the year 2010 or later
+        SELECT MAX(release_year) - MIN(release_year) AS difference FROM films #No. years between the newest film & oldest film. aliasd as difference
+
+
+
+
+4)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
+   SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC   #General syntax
+ 
+    A) SELECT * FROM Persons ORDER BY LastName DESC    #select all the persons from the table above, however, we want to sort
+                                                       # the persons descending (alphabetical letters) by their last name.
+
 
 
 
@@ -99,33 +139,6 @@ Describe actor;
      B) DELETE * FROM table_name    #It is possible to delete all rows in a table without deleting the table itself
 
 
-
-8)  LIKE operator    # It is used in a WHERE clause to search for a specified pattern in a column.
-     A) SELECT * FROM Persons WHERE City LIKE 's%'   # select the rows living in a city that starts with "s" from the table
-     B) SELECT * FROM Persons WHERE City LIKE '%as'   # Same as above, city ends with "as"
-     C) SELECT * FROM Persons WHERE City LIKE '%tav%'  #Same as above, city contains "tav"
-     D) SELECT * FROM Persons WHERE City NOT LIKE '%tas%'    #Same as above, city doesnt contain "tas"
-     E) SELECT * FROM Persons WHERE City LIKE '[abc]%'   #Same as above, city starts with either a or b or c
-     F) SELECT * FROM Persons WHERE City LIKE '[^abc]%'    #Same as above, city doesnt start with either a or b or c
-     G) SELECT name FROM people WHERE name LIKE '_r%'  # Get the names of people whose names have 'r' as the second letter.
-     H) SELECT name FROM people WHERE name NOT LIKE 'A%' # Get the names of people whose names don't start with A.
-
-
-
-
-
-
-11) ALIAS     # We can give a table or a column another name by using an alias. This can be a good thing to do if you have very long
-              or complex table names or column names.
-          SELECT column_name AS alias_name FROM table_name      #General syntax
-     
-   A) SELECT title, gross - budget AS net_profit FROM films;   # Get the title and net profit (gross- budget) for all films
-   B) SELECT Product_Orders.OrderID, Persons.LastName, Persons.FirstName FROM Persons, Product_Orders WHERE Persons.LastName='Hansen' 
-       AND Persons.FirstName='Ola'
-         #Here also, we list all the orders that are from "Ola Hansen" w/o using any aliases
-   C) SELECT MAX(release_year) - MIN(release_year) AS difference FROM films #No. years b/w the newest film & oldest film aliasd as difference
-   D) SELECT (MAX(release_year) - MIN(release_year))/10.0 AS numder_of_decades FROM films   # Get the number of decades the films table
-              #covers. Alias the result as number_of_decades
 
 
 
