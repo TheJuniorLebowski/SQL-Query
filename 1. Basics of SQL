@@ -34,6 +34,7 @@ Describe actor;
    A) SELECT LastName,FirstName FROM Persons    #This will selecte LastName & FirstName vars from Persons table
    B) SELECT * FROM Persons     #This will select all the columns from Persons table
    C) SELECT DISTINCT City FROM Persons   #It will select distinct cities from Persons table. Wont show dupilcate values
+   D) SELECT * FROM Persons LIMIT 10    #This will select all the columns from Persons table but show only 10 rows
 
 
 2) WHERE Function   # This is used for filtering out the data
