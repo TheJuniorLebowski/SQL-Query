@@ -40,7 +40,8 @@
         
         SELECT SUM(duration) FROM films; # Total duration of all films
         SELECT SUM(budget) FROM films WHERE release_year >= 2010;;  #  total budget of movies made in the year 2010 or later
-        
+        SELECT MAX(release_year) - MIN(release_year) AS difference FROM films #No. years between the newest film & oldest film. aliasd as difference
+
         
 
    6) SQL Scalar Functions: SQL scalar functions return a single value, based on the input value.
