@@ -39,7 +39,7 @@
         SUM() - Returns the sum
         
         SELECT SUM(duration) FROM films; # Total duration of all films
-        SELECT Min(duration) FROM films;  # Get the duration of the shortest film.
+        SELECT SUM(budget) FROM films WHERE release_year >= 2010;;  #  total budget of movies made in the year 2010 or later
         
         
 
