@@ -112,8 +112,8 @@ Describe actor;
                           two values. The values can be numbers, text, or dates.
         SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2     #General syntax
 
-     A) SELECT * FROM Persons WHERE LastName BETWEEN 'Hansen' AND 'Pettersen'    #It will select persons with a last name alphabetically
-                                                      # between "Hansen" and "Pettersen" from the table above.
+     A) SELECT title, release_year FROM films WHERE release_year BETWEEN 1990 AND 2000 AND budget > 100000000 AND language = 'Spanish'
+        # get the title and release year of all Spanish language films released between 1990 and 2000 (inclusive) with budgets over $100 mln.
      B) SELECT * FROM Persons WHERE LastName NOT BETWEEN 'Hansen' AND 'Pettersen'    # NOT BETWEEN to display results outside the range
 
 
