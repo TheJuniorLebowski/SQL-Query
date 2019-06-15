@@ -47,6 +47,7 @@ Describe actor;
     C) SELECT title, release_year FROM films where release_year > 2000;  # Get title & release_year of films after year 2000
 
 
+
 3) AND & OR operators    # The AND operator displays a record if both the first condition and the second condition are true.
                           #The OR operator displays a record if either the first condition or the second condition is true.
 
@@ -54,12 +55,17 @@ Describe actor;
     B) SELECT * FROM Persons WHERE FirstName='Tove' OR FirstName='Ola'
     C) SELECT * FROM Persons WHERE LastName='Svendson' AND (FirstName='Tove' OR FirstName='Ola')
       # C will select only the persons with the first name equal to "Tove" or "Ola" AND the last name equal to "Svendson"
+    
+    D) SELECT * FROM films WHERE language = 'Spanish' AND release_year > 2000 and release_year < 2010
+       # Get all details for Spanish language films released after 2000, but before 2010.
+
 
 4)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
    SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC   #General syntax
  
     A) SELECT * FROM Persons ORDER BY LastName DESC    #select all the persons from the table above, however, we want to sort
                                                        # the persons descending (alphabetical letters) by their last name.
+
 
 5) INSERT INTO    # Used for inserting new records into a table
    #INSERT INTO statement can be written into two forms. The first form doesn't specify the column names where the data will
@@ -70,14 +76,19 @@ Describe actor;
       A) INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken', 'Stavanger')             #This will add info into 1st 5 columns
       B) INSERT INTO Persons (P_Id, LastName, FirstName) VALUES (5, 'Tjessem', 'Jakob')      #insert data into specified columns
 
+
+
 6) UPDATE function.   # It can be used to update/edit an existing row in a table
       A) UPDATE Persons SET Address='Nissestien 67', City='Sandnes' WHERE LastName='Tjessem' AND FirstName='Jakob'
        #IT will update Address & City column in Persons table where Lastname is Tjessam and FIrstName is Jakob
        #If we had not mentioned WHERE arg, it would have updated all the rows in the Address and CIty columns
 
+
 7)  DELETE function   #Delete rows in a table
      A) DELETE FROM Persons WHERE LastName='Tjessem' AND FirstName='Jakob'  #It will delete all such conditional rows
      B) DELETE * FROM table_name    #It is possible to delete all rows in a table without deleting the table itself
+
+
 
 8)  LIKE operator    # It is used in a WHERE clause to search for a specified pattern in a column.
      A) SELECT * FROM Persons WHERE City LIKE 's%'   # select the rows living in a city that starts with "s" from the table
@@ -87,8 +98,12 @@ Describe actor;
      E) SELECT * FROM Persons WHERE City LIKE '[abc]%'   #Same as above, city starts with either a or b or c
      F) SELECT * FROM Persons WHERE City LIKE '[^abc]%'    #Same as above, city doesnt start with either a or b or c
 
+
+
 9) IN operator      # The IN operator allows you to specify multiple values in a WHERE clause.
      A) SELECT * FROM Persons WHERE LastName IN ('top','kek') #Select rows which have lasname as top or kek in the table
+
+
 
 10) BETWEEN operator    #is used in a WHERE clause to select a range of data between two values. It selects a range of data between
                           two values. The values can be numbers, text, or dates.
@@ -97,6 +112,8 @@ Describe actor;
      A) SELECT * FROM Persons WHERE LastName BETWEEN 'Hansen' AND 'Pettersen'    #It will select persons with a last name alphabetically
                                                       # between "Hansen" and "Pettersen" from the table above.
      B) SELECT * FROM Persons WHERE LastName NOT BETWEEN 'Hansen' AND 'Pettersen'    # NOT BETWEEN to display results outside the range
+
+
 
 11) ALIAS     # We can give a table or a column another name by using an alias. This can be a good thing to do if you have very long
               or complex table names or column names.
@@ -108,6 +125,8 @@ Describe actor;
    B) SELECT Product_Orders.OrderID, Persons.LastName, Persons.FirstName FROM Persons, Product_Orders WHERE Persons.LastName='Hansen' 
        AND Persons.FirstName='Ola'
          #Here also, we list all the orders that are from "Ola Hansen" w/o using any aliases
+
+
 
 12) JOIN:  The JOIN keyword is used in an SQL statement to query data from two or more tables, based on a relationship between certain
            columns in these tables.
@@ -143,12 +162,16 @@ Describe actor;
           have matches in "Persons", those rows will be listed as well.
 
 
+
  13) UNION: This operator combines two or more SELECT statements.The UNION operator selects only distinct values by default. To allow
            duplicate values, use UNION ALL operator.
            SELECT column_name(s) FROM table_name1 UNION ALL SELECT column_name(s) FROM table_name2     #General Syntax
 
       A) SELECT E_Name FROM Employees_Norway UNION SELECT E_Name FROM Employees_USA
          #It will give out all the distint E_name column from both the tables
+
+
+
 
  14) INSERT INTO: It is used for creating back up copies of files
      insert INTO new_table select * FROM existing table 
