@@ -165,6 +165,10 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
 
        #Here we take city name from Cities, and name, region countries table and then do inner join where country_code from Citie 
        is same as code from Countries. Here country_code is primary key in cities and foriegn key in the countries table
+       
+       SELECT c.code, c.name, c.region, p.year, p.fertility FROM countries AS c INNER JOIN populations AS p ON c.code = p.country_code
+       
+       
 
     B) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons LEFT JOIN Orders ON Persons.P_Id=Orders.P_Id
        ORDER BY Persons.LastName      #Left join. It'll include only matching rows from 2nd table and all the rows from 1st table even
