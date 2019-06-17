@@ -4,7 +4,7 @@ show tables;             #It will show the tables of current database/schema
 Describe actor;      
 
 HAVING is always used just after GROUP BY. HAVING is always used on agrregate functions only. WHERE is used just after FROM.
-
+Instead of using "city.code = country.code" we can use USING(code)
 
 
 1) Select Function  #This fn is used to select data from a db. It is not case sensitive
@@ -158,6 +158,7 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
      --LEFT JOIN: Return all rows from the left table, even if there are no matches in the right table
      --RIGHT JOIN: Return all rows from the right table, even if there are no matches in the left table
      --FULL JOIN: Return rows when there is a match in one of the tables
+     -- INNER JOIN (self join)- WHen a table is joined on itself only
 
     SELECT column_name(s) FROM table_name1 INNER JOIN table_name2 ON table_name1.column_name=table_name2.column_name   #SYntax
 
