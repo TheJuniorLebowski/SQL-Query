@@ -153,17 +153,18 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
            Primary Key: No two rows in a table can have same key. It's the identifier; a unique value like Id or something
 
     Different SQL Joins:
-     --JOIN: Return rows when there is at least one match in both tables. It is same as INNER JOIN
+     --JOIN: Return rows when there is at least one match in both tables. It is same as INNER JOIN. Only values in the left table that 
+         have a match in the right table are returned. NOn-matching values are not returned.
      --LEFT JOIN: Return all rows from the left table, even if there are no matches in the right table
      --RIGHT JOIN: Return all rows from the right table, even if there are no matches in the left table
      --FULL JOIN: Return rows when there is a match in one of the tables
 
     SELECT column_name(s) FROM table_name1 INNER JOIN table_name2 ON table_name1.column_name=table_name2.column_name   #SYntax
 
-    A) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons INNER JOIN Orders ON Persons.P_Id=Orders.P_Id
-       ORDER BY Persons.LastName       #Inner Join Example
-       #Here we take last & 1st name from Persons, Order no. frm Orders table and then do inner join where P_Id from Persons is same
-       as P_Id from Orders. Here P_Id is primary key in Persons and foriegn key in the Orders table
+    A) SELECT c.name AS citty, co.name, co.region FROM cities AS c INNER JOIN countries as co ON c.country_code = co.code
+
+       #Here we take city name from Cities, and name, region countries table and then do inner join where country_code from Citie 
+       is same as code from Countries. Here country_code is primary key in cities and foriegn key in the countries table
 
     B) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons LEFT JOIN Orders ON Persons.P_Id=Orders.P_Id
        ORDER BY Persons.LastName      #Left join. It'll include only matching rows from 2nd table and all the rows from 1st table even
