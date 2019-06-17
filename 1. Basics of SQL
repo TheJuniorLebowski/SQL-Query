@@ -118,7 +118,7 @@ Describe actor;
 
 
 7) GROUP BY statement: The GROUP BY statement is used in conjunction with the aggregate functions to group the result-set by one or
-                          more columns. Note that GROUP BY always goes after the FROM clause!
+                   more columns. Note that GROUP BY always goes after the FROM clause. Note also that ORDER BY always goes after GROUP BY
 
       SELECT column_name, aggregate_function(column_name)       #General Syntax
       FROM table_name
