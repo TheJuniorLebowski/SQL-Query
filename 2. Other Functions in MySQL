@@ -39,22 +39,7 @@
         NOW() - Returns the current system date and time
         FORMAT() - Formats how a field is to be displayed
 
-   7) GROUP BY statement: The GROUP BY statement is used in conjunction with the aggregate functions to group the result-set by one or
-                          more columns.
 
-      SELECT column_name, aggregate_function(column_name)       #General Syntax
-      FROM table_name
-      WHERE column_name operator value
-      GROUP BY column_name
-
-      SELECT Customer,SUM(OrderPrice) FROM Orders  #Here we'll get the total sum (of order price) by customer
-      GROUP BY Customer
-
-  8)  HAVING clause: The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
-
-      SELECT Customer,SUM(OrderPrice) FROM Orders      # Here we wanna see if any customer has sum of ordered price less than 2000
-      GROUP BY Customer
-      HAVING SUM(OrderPrice)<2000
 
   9) MID function: The MID() function is used to extract characters from a text field.
          SELECT MID(column_name,start[,length]) FROM table_name     # General syntax
