@@ -102,11 +102,16 @@ Describe actor;
 
 
 
-10)  ORDER BY    # The ORDER BY keyword is used to sort the result-set
+10)  ORDER BY    # The ORDER BY keyword is used to sort the result-set. By default ORDER BY will sort in ascending order.
    SELECT column_name(s) FROM table_name ORDER BY column_name(s) ASC|DESC   #General syntax
  
-    A) SELECT * FROM Persons ORDER BY LastName DESC    #select all the persons from the table above, however, we want to sort
-                                                       # the persons descending (alphabetical letters) by their last name.
+    A) SELECT title FROM films ORDER BY release_year DESC;   # titles of films sorted by release year, from newest to oldest.
+    B) SELECT title FROM films WHERE release_year in (2000, 2012) ORDER BY release_year    #Get the title of films released
+                    # in 2000 or 2012, in the order they were released.
+    C) SELECT * FROM films WHERE release_year NOT IN (2015) ORDER BY duration   # Get all details for all films except those
+                 # released in 2015 and order them by duration.
+    D) SELECT title, gross FROM films WHERE title LIKE 'M%' ORDER BY title     # Get the title and gross earnings for movies
+                   # which begin with the letter 'M' and order the results alphabetically.
 
 
 
