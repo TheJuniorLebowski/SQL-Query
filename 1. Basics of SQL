@@ -112,7 +112,9 @@ Describe actor;
                  # released in 2015 and order them by duration.
     D) SELECT title, gross FROM films WHERE title LIKE 'M%' ORDER BY title     # Get the title and gross earnings for movies
                    # which begin with the letter 'M' and order the results alphabetically.
-
+    E) SELECT birthdate, name FROM people ORDER BY birthdate, name;   # ORDER BY can also be used to sort on multiple columns.
+            #It will sort by the first column specified, then sort by the next, then the next, and so on. HERE it sorts on
+               #birth dates first (oldest to newest) and then sorts on the names in alphabetical order. 
 
 
 
