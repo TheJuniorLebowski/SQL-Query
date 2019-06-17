@@ -122,7 +122,7 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
     # Get the country, release year & lowest amount grossed per release year per country. Order your results by country and release year.
 
 
-7) GROUP BY statement: The GROUP BY statement is used in conjunction with the aggregate functions to group the result-set by one or
+11) GROUP BY statement: The GROUP BY statement is used in conjunction with the aggregate functions to group the result-set by one or
                    more columns. Note that GROUP BY always goes after the FROM clause. Note also that ORDER BY always goes after GROUP BY
 
       SELECT column_name, aggregate_function(column_name)       #General Syntax
@@ -138,11 +138,16 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
    D) SELECT language, sum(gross) FROM films GROUP BY language  # Get the language and total gross amount films in each language made.
 
 
-8)  HAVING clause: The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+12)  HAVING clause: The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+    HAVING is always used just after GROUP BY. HAVING is always used on agrregate functions only. WHERE is used just after FROM.
    A) SELECT release_year, count(title) FROM films GROUP BY release_year HAVING count(title) >200;
                # In how many different years were more than 200 movies released?
 
-11) INSERT INTO    # Used for inserting new records into a table
+
+
+
+
+13) INSERT INTO    # Used for inserting new records into a table
    #INSERT INTO statement can be written into two forms. The first form doesn't specify the column names where the data will
    # be inserted, only their values. The second form specifies both the column names and the values to be inserted.
       1)  INSERT INTO table_name VALUES (value1, value2, value3,...)
@@ -153,13 +158,13 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
 
 
 
-12) UPDATE function.   # It can be used to update/edit an existing row in a table
+14) UPDATE function.   # It can be used to update/edit an existing row in a table
       A) UPDATE Persons SET Address='Nissestien 67', City='Sandnes' WHERE LastName='Tjessem' AND FirstName='Jakob'
        #IT will update Address & City column in Persons table where Lastname is Tjessam and FIrstName is Jakob
        #If we had not mentioned WHERE arg, it would have updated all the rows in the Address and CIty columns
 
 
-13)  DELETE function   #Delete rows in a table
+15)  DELETE function   #Delete rows in a table
      A) DELETE FROM Persons WHERE LastName='Tjessem' AND FirstName='Jakob'  #It will delete all such conditional rows
      B) DELETE * FROM table_name    #It is possible to delete all rows in a table without deleting the table itself
 
@@ -168,7 +173,7 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
 
 
 
-14) JOIN:  The JOIN keyword is used in an SQL statement to query data from two or more tables, based on a relationship between certain
+16) JOIN:  The JOIN keyword is used in an SQL statement to query data from two or more tables, based on a relationship between certain
            columns in these tables.
            Tables in a database are often related to each other with keys.
            A primary key is a column (or combination of columns) with a unique value for each row. Each primary key value must be
@@ -203,7 +208,7 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
 
 
 
- 15) UNION: This operator combines two or more SELECT statements.The UNION operator selects only distinct values by default. To allow
+ 17) UNION: This operator combines two or more SELECT statements.The UNION operator selects only distinct values by default. To allow
            duplicate values, use UNION ALL operator.
            SELECT column_name(s) FROM table_name1 UNION ALL SELECT column_name(s) FROM table_name2     #General Syntax
 
@@ -213,7 +218,7 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
 
 
 
- 16) INSERT INTO: It is used for creating back up copies of files
+ 18) INSERT INTO: It is used for creating back up copies of files
      insert INTO new_table select * FROM existing table 
  
       A) CREATE TABLE actor_kek LIKE actor;   #Here we create a new empty table actor_kek similar as actor
