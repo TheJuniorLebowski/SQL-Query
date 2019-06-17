@@ -115,6 +115,8 @@ Describe actor;
     E) SELECT birthdate, name FROM people ORDER BY birthdate, name;   # ORDER BY can also be used to sort on multiple columns.
             #It will sort by the first column specified, then sort by the next, then the next, and so on. HERE it sorts on
                #birth dates first (oldest to newest) and then sorts on the names in alphabetical order. 
+    F) SELECT country, release_year, MIN(gross) FROM films GROUP BY release_year, country ORDER BY country, release_year;
+    # Get the country, release year & lowest amount grossed per release year per country. Order your results by country and release year.
 
 
 7) GROUP BY statement: The GROUP BY statement is used in conjunction with the aggregate functions to group the result-set by one or
