@@ -3,6 +3,9 @@
 show tables;             #It will show the tables of current database/schema
 Describe actor;      
 
+HAVING is always used just after GROUP BY. HAVING is always used on agrregate functions only. WHERE is used just after FROM.
+
+
 
 1) Select Function  #This fn is used to select data from a db. It is not case sensitive
    A) SELECT LastName,FirstName FROM Persons    #This will selecte LastName & FirstName vars from Persons table
