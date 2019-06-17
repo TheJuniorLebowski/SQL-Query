@@ -117,6 +117,16 @@ Describe actor;
                #birth dates first (oldest to newest) and then sorts on the names in alphabetical order. 
 
 
+7) GROUP BY statement: The GROUP BY statement is used in conjunction with the aggregate functions to group the result-set by one or
+                          more columns. Note that GROUP BY always goes after the FROM clause!
+
+      SELECT column_name, aggregate_function(column_name)       #General Syntax
+      FROM table_name
+      WHERE column_name operator value
+      GROUP BY column_name
+
+   A) SELECT sex, count(*) FROM employees GROUP BY sex;   # count the number of male and female employees in your company.
+
 
 
 
