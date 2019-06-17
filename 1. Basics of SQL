@@ -1,11 +1,7 @@
 
 
 show tables;             #It will show the tables of current database/schema
-select * from actor;     #It will populate the actor table
 Describe actor;      
-
-
-
 
 
 1) Select Function  #This fn is used to select data from a db. It is not case sensitive
