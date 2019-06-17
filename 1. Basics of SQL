@@ -168,6 +168,12 @@ HAVING is always used just after GROUP BY. HAVING is always used on agrregate fu
        
        SELECT c.code, c.name, c.region, p.year, p.fertility FROM countries AS c INNER JOIN populations AS p ON c.code = p.country_code
        
+       # Joining multiple tables
+       SELECT c.code, c.name, c.region, p.year, p.fertility_rate, e.unemployment_rate, e.year
+         FROM countries AS c 
+         INNER JOIN populations AS p ON c.code = p.country_code
+         INNER JOIN economies as e ON c.code = e.code AND e.year = p.year
+       
        
 
     B) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons LEFT JOIN Orders ON Persons.P_Id=Orders.P_Id
