@@ -3,6 +3,24 @@
 show tables;             #It will show the tables of current database/schema
 Describe actor;      
 
+   1) Select Function
+   2) WHERE Function
+   3) AND & OR operators
+   4) IN operator
+   5) BETWEEN operator
+   6) NULL operator
+   7) LIKE operator
+   8) ALIAS
+   9) SQL Aggregate Functions
+   10) ORDER BY
+   11) GROUP BY statement
+   12) HAVING clause
+   13) JOIN
+   14) UNION
+
+
+
+
 HAVING is always used just after GROUP BY. HAVING is always used on agrregate functions only. WHERE is used just after FROM.
 Instead of using "city.code = country.code" we can use USING(code)
 
@@ -101,7 +119,6 @@ Instead of using "city.code = country.code" we can use USING(code)
         SELECT SUM(duration) FROM films; # Total duration of all films
         SELECT SUM(budget) FROM films WHERE release_year >= 2010;;  #  total budget of movies made in the year 2010 or later
         SELECT MAX(release_year) - MIN(release_year) AS difference FROM films #No. years between the newest film & oldest film. aliasd as difference
-
 
 
 
@@ -216,8 +233,6 @@ Instead of using "city.code = country.code" we can use USING(code)
       B) INSERT INTO LastName,Firstname INTO actor_kek FROM actor WHERE City='Sandnes' # Using INSERT INTO with WHERE clause
 
 
-
-
 13) INSERT INTO    # Used for inserting new records into a table
    #INSERT INTO statement can be written into two forms. The first form doesn't specify the column names where the data will
    # be inserted, only their values. The second form specifies both the column names and the values to be inserted.
@@ -226,7 +241,6 @@ Instead of using "city.code = country.code" we can use USING(code)
 
       A) INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken', 'Stavanger')             #This will add info into 1st 5 columns
       B) INSERT INTO Persons (P_Id, LastName, FirstName) VALUES (5, 'Tjessem', 'Jakob')      #insert data into specified columns
-
 
 
 14) UPDATE function.   # It can be used to update/edit an existing row in a table
@@ -238,9 +252,6 @@ Instead of using "city.code = country.code" we can use USING(code)
 15)  DELETE function   #Delete rows in a table
      A) DELETE FROM Persons WHERE LastName='Tjessem' AND FirstName='Jakob'  #It will delete all such conditional rows
      B) DELETE * FROM table_name    #It is possible to delete all rows in a table without deleting the table itself
-
-
-
 
 
 
