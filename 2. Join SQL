@@ -1,9 +1,65 @@
 
 
 
+1) JOIN:  The JOIN keyword is used in an SQL statement to query data from two or more tables, based on a relationship between certain
+           columns in these tables.
+           Tables in a database are often related to each other with keys.
+           A primary key is a column (or combination of columns) with a unique value for each row. Each primary key value must be
+           unique within the table. The purpose is to bind data together, across tables, w/o repeating all of the data in every table.
+           Primary Key: No two rows in a table can have same key. It's the identifier; a unique value like Id or something
 
+    Different SQL Joins:
+     --JOIN: Return rows when there is at least one match in both tables. It is same as INNER JOIN. Only values in the left table that 
+         have a match in the right table are returned. NOn-matching values are not returned.
+     --LEFT JOIN: Return all rows from the left table, even if there are no matches in the right table
+     --RIGHT JOIN: Return all rows from the right table, even if there are no matches in the left table
+     --FULL JOIN: Return rows when there is a match in one of the tables
+     -- INNER JOIN (self join)- WHen a table is joined on itself only
+
+    SELECT column_name(s) FROM table_name1 INNER JOIN table_name2 ON table_name1.column_name=table_name2.column_name   #SYntax
+
+    A) SELECT c.name as city, co.name AS country, co.region AS region FROM cities AS c INNER JOIN countries as co ON c.country_code = co.code
+
+       #Here we take city name from Cities, and name, region countries table and then do inner join where country_code from Citie 
+       is same as code from Countries. Here country_code is primary key in cities and foriegn key in the countries table
+       
+       SELECT c.code, c.name, c.region, p.year, p.fertility FROM countries AS c INNER JOIN populations AS p ON c.code = p.country_code
+       
+       # Joining multiple tables
+       SELECT c.code, c.name, c.region, p.year, p.fertility_rate, e.unemployment_rate, e.year
+         FROM countries AS c 
+         INNER JOIN populations AS p ON c.code = p.country_code
+         INNER JOIN economies as e ON c.code = e.code AND e.year = p.year
+       
     B) SELECT *, case when surface_area>2000000 then 'large' when surface_area between 350000 and 2000000 then 'medium' else 
            'small' end as "geosize_group" FROM countries    # This an example of 'CASE with WHEN, THEN, ELSE, and END'
+
+    B) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons LEFT JOIN Orders ON Persons.P_Id=Orders.P_Id
+       ORDER BY Persons.LastName      #Left join. It'll include only matching rows from 2nd table and all the rows from 1st table even
+                                     if they do not have a match in the 2nd table (Orders table)
+   
+    C) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons RIGHT JOIN Orders ON Persons.P_Id=Orders.P_Id
+        ORDER BY Persons.LastName             # Right outer join. returns all the rows from the right table (Orders), even if there are
+                                              # no matches in the left table (Persons).
+
+    D) SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo FROM Persons FULL JOIN Orders ON Persons.P_Id=Orders.P_Id
+       # Full Join. The FULL JOIN keyword returns all the rows from the left table (Persons), and all the rows from the right table
+         (Orders). If there are rows in "Persons" that do not have matches in "Orders", or if there are rows in "Orders" that do not
+          have matches in "Persons", those rows will be listed as well.
+
+
+
+2) 'CASE with WHEN, THEN, ELSE, and END' Clause
+SELECT *, CASE WHEN surface_area>2000000 THEN 'large'
+    WHEN surface_area between 350000 and 2000000 THEN 'medium'
+    ELSE 'small' end AS "geosize_group" FROM countries    # This an example of 'CASE with WHEN, THEN, ELSE, and END'
+
+
+
+
+
+
+
 
 
 
