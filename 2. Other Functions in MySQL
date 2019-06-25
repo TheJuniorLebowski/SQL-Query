@@ -49,6 +49,35 @@
 
 
 
+18) INSERT INTO: It is used for creating back up copies of files
+     insert INTO new_table select * FROM existing table 
+ 
+      A) CREATE TABLE actor_kek LIKE actor;   #Here we create a new empty table actor_kek similar as actor
+         INSERT INTO actor_kek select * FROM actor;  #Then we copy value of actor table into the actor_kek
+       
+      B) INSERT INTO LastName,Firstname INTO actor_kek FROM actor WHERE City='Sandnes' # Using INSERT INTO with WHERE clause
+
+
+13) INSERT INTO    # Used for inserting new records into a table
+   #INSERT INTO statement can be written into two forms. The first form doesn't specify the column names where the data will
+   # be inserted, only their values. The second form specifies both the column names and the values to be inserted.
+      1)  INSERT INTO table_name VALUES (value1, value2, value3,...)
+      2)  INSERT INTO table_name (column1, column2, column3,...) VALUES (value1, value2, value3,...)
+
+      A) INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken', 'Stavanger')             #This will add info into 1st 5 columns
+      B) INSERT INTO Persons (P_Id, LastName, FirstName) VALUES (5, 'Tjessem', 'Jakob')      #insert data into specified columns
+
+
+14) UPDATE function.   # It can be used to update/edit an existing row in a table
+      A) UPDATE Persons SET Address='Nissestien 67', City='Sandnes' WHERE LastName='Tjessem' AND FirstName='Jakob'
+       #IT will update Address & City column in Persons table where Lastname is Tjessam and FIrstName is Jakob
+       #If we had not mentioned WHERE arg, it would have updated all the rows in the Address and CIty columns
+
+
+15)  DELETE function   #Delete rows in a table
+     A) DELETE FROM Persons WHERE LastName='Tjessem' AND FirstName='Jakob'  #It will delete all such conditional rows
+     B) DELETE * FROM table_name    #It is possible to delete all rows in a table without deleting the table itself
+
 
 
 
