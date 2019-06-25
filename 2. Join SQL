@@ -50,9 +50,22 @@
 
 
 2) 'CASE with WHEN, THEN, ELSE, and END' Clause
-SELECT *, CASE WHEN surface_area>2000000 THEN 'large'
-    WHEN surface_area between 350000 and 2000000 THEN 'medium'
-    ELSE 'small' end AS "geosize_group" FROM countries    # This an example of 'CASE with WHEN, THEN, ELSE, and END'
+
+
+    A) SELECT *, CASE WHEN surface_area>2000000 THEN 'large'
+         WHEN surface_area between 350000 and 2000000 THEN 'medium'
+         ELSE 'small' end AS "geosize_group" FROM countries    # This an example of 'CASE with WHEN, THEN, ELSE, and END'
+         
+    B) Using the populations table focused only for the year 2015, create a new field AS popsize_group to organize population size into
+    'large' (> 50 million), 'medium' (> 1 million), and 'small' groups. Select onl country code, pop size, and this new popsize_group as fields.
+           Select country_code, size, CASE WHEN size > 50000000 THEN 'large'
+               WHEN size > 1000000 THEN 'medium' 
+               ELSE 'small' END AS popsize_group 
+               FROM populations WHERE year = 2015
+
+
+
+
 
 
 
