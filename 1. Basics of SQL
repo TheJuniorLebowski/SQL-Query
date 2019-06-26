@@ -159,6 +159,14 @@ Instead of using "city.code = country.code" we can use USING(code)
                # In how many different years were more than 200 movies released?
 
 
+12)  INTO clause: The HAVING clause adds the data extracted from one query into another table using INTO clause.
+    HAVING is always used just after GROUP BY. HAVING is always used on agrregate functions only. WHERE is used just after FROM.
+   A) SELECT release_year, count(title) FROM films GROUP BY release_year HAVING count(title) >200;
+               # In how many different years were more than 200 movies released?
+
+
+
+
  13) UNION: This operator combines two or more SELECT statements.The UNION operator selects only distinct values by default. To allow
            duplicate values, use UNION ALL operator.
            SELECT column_name(s) FROM table_name1 UNION ALL SELECT column_name(s) FROM table_name2     #General Syntax
