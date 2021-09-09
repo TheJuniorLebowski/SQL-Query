@@ -15,6 +15,8 @@ select count(distinct fid) from jos_sitevisit_tag_value
 
 show tables
 
+SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '6136ee42c3941822005f7622'; # It would count tables in database '6136ee42c3941822005f7622'
+
 show tables like '%jos_sitevisit%'
 
 describe jos_sitevisit_tag_value
