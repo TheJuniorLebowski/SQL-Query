@@ -9,6 +9,37 @@ If there is more than one smallest or largest city, choose the one that comes fi
 2. Query the list of CITY names from STATION table starting with vowels (i.e., a, e, i, o, or u) from table Your result cannot contain duplicates.
             
             SELECT DISTINCT(CITY) FROM STATION WHERE CITY REGEXP '^[aeiouAEIOU]';
+            
+3. Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+            
+            SELECT DISTINCT(CITY) FROM STATION WHERE CITY NOT REGEXP '^[aeiouAEIOU]' OR CITY NOT REGEXP '[aeiouAEIOU]$';
+
+
+
+4. Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the STation table.
+           
+           SELECT COUNT(CITY)- COUNT(DISTINCT(CITY)) from STATION;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
