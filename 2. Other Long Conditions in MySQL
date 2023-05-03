@@ -50,6 +50,12 @@ decimal places.
 
                     SELECT TRUNCATE(SUM(LAT_N), 4) AS truncated_LAT from station WHERE LAT_N >38.7880 AND LAT_N < 137.2345;
 
+10. Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than 137.2345. Round your answer to 
+decimal places
+
+            SELECT ROUND(LONG_W, 4) from STATION WHERE LAT_N <137.2345 ORDER BY LAT_N DESC LIMIT 1;
+
+
 
 
 
